@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/mother/oio-native/issues"
   },
-  "homepage": "https://github.com/mother/oio-native#readme"
+  "homepage": "https://github.com/mother/oio-native#readme",
+  "dependencies": {
+    "react": "16.2.0",
+    "react-native": "0.50.4"
+  }
 }
