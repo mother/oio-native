@@ -1,6 +1,6 @@
 {
   "name": "oio-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A UI component kit for React Native",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/mother/oio-native#readme",
   "dependencies": {
-    "react": "16.2.0",
-    "react-native": "0.50.4"
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.48.4"
   }
 }
