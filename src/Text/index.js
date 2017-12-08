@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { Text as TextNative, StyleSheet } from 'react-native'
 
 export default class Text extends Component {
-   // static propTypes = {
-   //    size: React.PropTypes.oneOfType([
-   //       React.PropTypes.string,
-   //       React.PropTypes.number
-   //    ]),
-   //    weight: React.PropTypes.oneOf(['normal', 'medium', 'semibold', 'bold']),
-   //    uppercase: React.PropTypes.bool
-   // }
+   static propTypes = {
+      size: React.PropTypes.oneOfType([
+         React.PropTypes.string,
+         React.PropTypes.number
+      ]),
+      weight: React.PropTypes.oneOf(['light', 'normal', 'medium', 'semibold', 'bold']),
+      uppercase: React.PropTypes.bool
+   }
 
-   // static defaultProps = {
-   //    size: 3,
-   //    weight: 'normal',
-   //    uppercase: false
-   // }
+   static defaultProps = {
+      size: 3,
+      weight: 'normal',
+      uppercase: false
+   }
 
    setNativeProps = (nativeProps) => {
       this._root.setNativeProps(nativeProps)
@@ -30,7 +30,7 @@ export default class Text extends Component {
          textStyles.push(style)
       }
 
-      if (uppercase) {
+      if (children && uppercase) {
          textBody = children.toUpperCase()
       }
 
@@ -44,7 +44,7 @@ export default class Text extends Component {
 
 const styles = StyleSheet.create({
    1: {
-      fontSize: 10
+      fontSize: 11
    },
    2: {
       fontSize: 13
@@ -56,13 +56,28 @@ const styles = StyleSheet.create({
       fontSize: 17
    },
    5: {
-      fontSize: 21
+      fontSize: 19
    },
    6: {
       fontSize: 24
    },
    7: {
       fontSize: 30
+   },
+   8: {
+      fontSize: 36
+   },
+   9: {
+      fontSize: 42
+   },
+   10: {
+      fontSize: 51
+   },
+   11: {
+      fontSize: 60
+   },
+   light: {
+      fontWeight: "300"
    },
    normal: {
       fontWeight: "400"

@@ -9,11 +9,11 @@ const Spacer = ({ size }) => {
    )
 }
 
-// Spacer.propTypes = {
-//    size: React.PropTypes.oneOfType([
-//       React.PropTypes.string,
-//       React.PropTypes.number
-//    ]).isRequired
-// }
+Spacer.propTypes = {
+   size: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number
+   ]).isRequired
+}
 
 export default Spacer
