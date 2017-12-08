@@ -1,2 +1,2 @@
 # oio-native
-A UI component kit for React
+A UI component kit for React Native

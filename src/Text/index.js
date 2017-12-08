@@ -11,11 +11,11 @@ export default class Text extends Component {
    //    uppercase: React.PropTypes.bool
    // }
 
-   static defaultProps = {
-      size: 3,
-      weight: 'normal',
-      uppercase: false
-   }
+   // static defaultProps = {
+   //    size: 3,
+   //    weight: 'normal',
+   //    uppercase: false
+   // }
 
    setNativeProps = (nativeProps) => {
       this._root.setNativeProps(nativeProps)
