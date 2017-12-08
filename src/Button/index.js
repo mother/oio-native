@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, View, StyleSheet } from 'react-native'
-import { Text } from './Text'
+import { Text } from '../Text'
 
 export default class Button extends Component {
    // static propTypes = {
