@@ -1,5 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
+import PropTypes from 'prop-types'
 
 const Spacer = ({ size }) => {
    const spacerHeight = size * 6
@@ -10,9 +11,9 @@ const Spacer = ({ size }) => {
 }
 
 Spacer.propTypes = {
-   size: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number
+   size: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
    ]).isRequired
 }
 
