@@ -23,7 +23,6 @@
     "url": "https://github.com/mother/oio-native/issues"
   },
   "homepage": "https://github.com/mother/oio-native#readme",
-  "dependencies": {},
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
