@@ -5,17 +5,15 @@ import Text from '../Text'
 
 export default class Button extends Component {
    static propTypes = {
-      name: React.PropTypes.string,
-      onPress: React.PropTypes.func,
-      outline: React.PropTypes.bool,
-      plain: React.PropTypes.bool
+      format: PropTypes.oneOf(['fill', 'outline', 'plain']),
+      name: PropTypes.string,
+      onPress: PropTypes.func
    }
 
    static defaultProps = {
+      format: 'fill',
       name: null,
       onPress:  () => {},
-      outline: false,
-      plain: false
    }
 
    setNativeProps = (nativeProps) => {
@@ -23,13 +21,9 @@ export default class Button extends Component {
    }
 
    render() {
-      const { name, onPress, plain, ...props } = this.props
-      const buttonStyles = [style.button]
+      const { format, name, onPress, ...props } = this.props
+      const buttonStyles = [style.button, style[format]]
       let buttonText = name
-
-      if (outline) {
-         buttonStyles.push(style.outline)
-      }
 
       return (
          <TouchableOpacity onPress={onPress}>
@@ -51,9 +45,15 @@ const style = StyleSheet.create({
       alignItems: 'center',
       padding: 12
    },
+   fill: {
+      backgroundColor: 'rgba(208, 188, 149, 0.2)'
+   },
    outline: {
       borderColor: 'rgba(208, 188, 149, 0.5)',
       borderWidth: 2,
       borderRadius: 8
+   },
+   plain: {
+      backgroundColor: 'none'
    }
 })

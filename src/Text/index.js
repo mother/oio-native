@@ -8,8 +8,8 @@ export default class Text extends Component {
          PropTypes.string,
          PropTypes.number
       ]),
-      weight: React.PropTypes.oneOf(['light', 'normal', 'medium', 'semibold', 'bold', 'black']),
-      uppercase: React.PropTypes.bool
+      weight: PropTypes.oneOf(['light', 'normal', 'medium', 'semibold', 'bold', 'black']),
+      uppercase: PropTypes.bool
    }
 
    static defaultProps = {
