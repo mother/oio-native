@@ -5,6 +5,7 @@ import Text from '../Text'
 
 export default class Button extends Component {
    static propTypes = {
+      color: PropTypes.string,
       format: PropTypes.oneOf(['fill', 'outline', 'plain']),
       name: PropTypes.string,
       onPress: PropTypes.func,
@@ -12,6 +13,7 @@ export default class Button extends Component {
    }
 
    static defaultProps = {
+      color: 'rgba(208, 188, 149, 1)',
       format: 'medium',
       name: null,
       onPress:  () => {},
@@ -22,16 +24,42 @@ export default class Button extends Component {
    }
 
    render() {
-      const { format, name, onPress, ...props } = this.props
+      const { color, format, name, onPress, size, ...props } = this.props
       const buttonStyles = [style.button, style[format], style[size]]
       let buttonText = name
+
+      const style = StyleSheet.create({
+         button: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            paddingHorizontal: 12
+         },
+         small: {
+            height: 36
+         },
+         medium: {
+            height: 42
+         },
+         large: {
+            height: 60
+         },
+         fill: {
+            backgroundColor: 'rgba(208, 188, 149, 0.2)'
+         },
+         outline: {
+            borderColor: color,
+            borderWidth: 2,
+            borderRadius: 8
+         },
+         plain: {
+            backgroundColor: 'transparent'
+         }
+      })
 
       return (
          <TouchableOpacity onPress={onPress}>
             <View ref={component => this._root = component} style={buttonStyles} {...props}>
-               <Text style={{
-                  color: 'rgba(208, 188, 149, 1)'
-               }} uppercase>
+               <Text style={{ color }} uppercase>
                   {buttonText}
                </Text>
             </View>
@@ -39,31 +67,3 @@ export default class Button extends Component {
       )
    }
 }
-
-const style = StyleSheet.create({
-   button: {
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingHorizontal: 12
-   },
-   small: {
-      height: 36
-   },
-   medium: {
-      height: 42
-   },
-   large: {
-      height: 60
-   },
-   fill: {
-      backgroundColor: 'rgba(208, 188, 149, 0.2)'
-   },
-   outline: {
-      borderColor: 'rgba(208, 188, 149, 0.5)',
-      borderWidth: 2,
-      borderRadius: 8
-   },
-   plain: {
-      backgroundColor: 'transparent'
-   }
-})
