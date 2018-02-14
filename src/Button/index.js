@@ -7,11 +7,12 @@ export default class Button extends Component {
    static propTypes = {
       format: PropTypes.oneOf(['fill', 'outline', 'plain']),
       name: PropTypes.string,
-      onPress: PropTypes.func
+      onPress: PropTypes.func,
+      size: PropTypes.oneOf(['small', 'medium', 'large']),
    }
 
    static defaultProps = {
-      format: 'fill',
+      format: 'medium',
       name: null,
       onPress:  () => {},
    }
@@ -22,7 +23,7 @@ export default class Button extends Component {
 
    render() {
       const { format, name, onPress, ...props } = this.props
-      const buttonStyles = [style.button, style[format]]
+      const buttonStyles = [style.button, style[format], style[size]]
       let buttonText = name
 
       return (
@@ -43,7 +44,16 @@ const style = StyleSheet.create({
    button: {
       justifyContent: 'center',
       alignItems: 'center',
-      padding: 12
+      paddingHorizontal: 12
+   },
+   small: {
+      height: 36
+   },
+   medium: {
+      height: 42
+   },
+   large: {
+      height: 60
    },
    fill: {
       backgroundColor: 'rgba(208, 188, 149, 0.2)'
@@ -54,6 +64,6 @@ const style = StyleSheet.create({
       borderRadius: 8
    },
    plain: {
-      backgroundColor: 'none'
+      backgroundColor: 'transparent'
    }
 })
