@@ -14,9 +14,10 @@ export default class Button extends Component {
 
    static defaultProps = {
       color: 'rgba(208, 188, 149, 1)',
-      format: 'medium',
+      format: 'fill',
       name: null,
       onPress:  () => {},
+      size: 'medium'
    }
 
    setNativeProps = (nativeProps) => {
@@ -25,13 +26,12 @@ export default class Button extends Component {
 
    render() {
       const { color, format, name, onPress, size, ...props } = this.props
-      let buttonText = name
-
       const style = StyleSheet.create({
          button: {
             justifyContent: 'center',
             alignItems: 'center',
-            paddingHorizontal: 12
+            paddingHorizontal: 12,
+            borderRadius: 8
          },
          small: {
             height: 36
@@ -47,8 +47,7 @@ export default class Button extends Component {
          },
          outline: {
             borderColor: color,
-            borderWidth: 2,
-            borderRadius: 8
+            borderWidth: 2
          },
          plain: {
             backgroundColor: 'transparent'
@@ -60,9 +59,7 @@ export default class Button extends Component {
       return (
          <TouchableOpacity onPress={onPress}>
             <View ref={component => this._root = component} style={buttonStyles} {...props}>
-               <Text style={{ color }} uppercase>
-                  {buttonText}
-               </Text>
+               <Text style={{ color }} uppercase>{name}</Text>
             </View>
          </TouchableOpacity>
       )
