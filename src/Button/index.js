@@ -25,7 +25,6 @@ export default class Button extends Component {
 
    render() {
       const { color, format, name, onPress, size, ...props } = this.props
-      const buttonStyles = [style.button, style[format], style[size]]
       let buttonText = name
 
       const style = StyleSheet.create({
@@ -55,6 +54,8 @@ export default class Button extends Component {
             backgroundColor: 'transparent'
          }
       })
+
+      const buttonStyles = [style.button, style[format], style[size]]
 
       return (
          <TouchableOpacity onPress={onPress}>
