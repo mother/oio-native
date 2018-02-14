@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Text as TextNative, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
 export default class Text extends Component {
    static propTypes = {
-      size: React.PropTypes.oneOfType([
-         React.PropTypes.string,
-         React.PropTypes.number
+      size: PropTypes.oneOfType([
+         PropTypes.string,
+         PropTypes.number
       ]),
       weight: React.PropTypes.oneOf(['light', 'normal', 'medium', 'semibold', 'bold', 'black']),
       uppercase: React.PropTypes.bool
