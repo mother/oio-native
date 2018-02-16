@@ -5,11 +5,11 @@ import Text from '../Text'
 
 export default class Button extends Component {
    static propTypes = {
-      color: PropTypes.string,
-      format: PropTypes.oneOf(['fill', 'outline', 'plain']),
-      name: PropTypes.string,
-      onPress: PropTypes.func,
-      size: PropTypes.oneOf(['small', 'medium', 'large']),
+      color: PropTypes.string.isRequired,
+      format: PropTypes.oneOf(['fill', 'outline', 'plain']).isRequired,
+      name: PropTypes.string.isRequired,
+      onPress: PropTypes.func.isRequired,
+      size: PropTypes.oneOf(['small', 'medium', 'large']).isRequired,
    }
 
    static defaultProps = {
@@ -21,7 +21,7 @@ export default class Button extends Component {
    }
 
    setNativeProps = (nativeProps) => {
-      this._root.setNativeProps(nativeProps)
+      this.button.setNativeProps(nativeProps)
    }
 
    render() {
@@ -58,7 +58,7 @@ export default class Button extends Component {
 
       return (
          <TouchableOpacity onPress={onPress}>
-            <View ref={component => this._root = component} style={buttonStyles} {...props}>
+            <View ref={(node) => { this.button = node }} style={buttonStyles} {...props}>
                <Text style={{ color }} uppercase>{name}</Text>
             </View>
          </TouchableOpacity>
